@@ -282,3 +282,11 @@ body {
 strong {
   font-weight: 500;
 }
+
+/* Links */
+a {
+  text-decoration: line-through;
+}
+a:link {
+  text-decoration: none;
+}
