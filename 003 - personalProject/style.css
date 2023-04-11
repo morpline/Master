@@ -1,0 +1,107 @@
+/* 
+Font sizes:
+10,12,18,24,36,48,60
+REM sizes:
+1rem, 1.2rem, 1.8rem, 2.4rem, 3.6rem, 4.8rem, 6rem
+*/
+* {
+    font-family: 'PT Sans', sans-serif;
+    --indigo: #490579ff;
+    --indigo-dark: #25033Dff;
+    --indigo-lite: #A482BCff;
+    --cool-gray: #9197aeff;
+    --cool-gray-dark: #494C57FF;
+    --cool-gray-lite: #C3C6D2FF;
+    --cool-gray-very-dark: #24262CFF;
+    --cool-gray-very-lite: #F4F5F7FF;
+    color: var(--indigo);
+    background-color: var(--cool-gray-very-lite);
+}
+html{
+    background-color: var(--indigo-lite);
+}
+body {
+    width: 97%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--indigo-lite);
+}
+.content {
+    background-color: var(--cool-gray-very-lite);
+    width: 800px;
+}
+.section {
+    padding: 1rem;
+}
+/* Header */
+header {
+    padding: 1rem 4.8rem 1rem 4.8rem;
+}
+/* Description */
+.title{
+    font-size: 4.8rem;
+}
+
+p.description {
+    font-size: 1.2rem;
+    color: var(--cool-gray-very-dark);
+}
+.type-item{
+    font-size: 1rem;
+    color:var(--cool-gray);
+}
+/* Calculator section */
+.grid-two-cols{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.calc-list {
+    padding:0;
+}
+.calc-list li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 3.6rem; */
+    min-height: 3.6rem;
+}
+.calc-list li::marker{
+    color:var(--indigo-lite);
+    display: none;
+    width: 0;
+}
+label.calc-list-label{
+    display:block;
+    width: 14rem;
+}
+.calc-list-btn{
+    margin: 1rem 2.4rem 3.6rem 2.4rem;
+    font-size: 1.2rem;
+    height: auto;
+    padding: 0.6rem;
+}
+.calc-list-input{
+    height: 1.8rem;
+}
+
+/* Links */
+a:link{
+    text-decoration: none;
+    color: var(--indigo-dark);
+    transition: 0.2s;
+}
+a:hover{
+    color: var(--indigo-lite);
+}
+/* Button */
+button, input{
+    border: solid 0.2rem var(--indigo);
+    color: var(--indigo);
+    background-color: var(--cool-gray-lite);
+}
+button:hover{
+    border: solid 0.2rem var(--indigo-dark);
+    color: var(--indigo);
+    background-color: var(--cool-gray);
+}
