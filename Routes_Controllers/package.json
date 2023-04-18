@@ -1,14 +1,14 @@
 {
-  "name": "node_intro",
+  "name": "routes_controllers",
   "version": "1.0.0",
-  "description": "my first node intro",
+  "description": "this is frustrating",
   "main": "index.js",
   "scripts": {
     "start":"nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "morpline",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
