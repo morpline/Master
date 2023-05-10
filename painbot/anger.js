@@ -25,7 +25,7 @@ const words = [
 ];
 function censorCommon (text) {
     //Works
-    let siwo = text || "!Error - You have to enter some text but the if is a";
+    let siwo = text || "!Error - You have to enter some text";
     let done = "";
     words.forEach((e,i)=>{
         while(siwo.includes(e))
@@ -113,3 +113,28 @@ console.log(
 console.log(
     maximumPain("this is a test of words, men.")
 );
+
+const types = [
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "a",
+    "p"
+];
+function webpageBomb () {
+    types.forEach(t=>{
+        a = document.querySelectorAll(t);
+        a.forEach(d => {
+            d.textContent = maximumPain(d.textContent);
+        });
+    });
+};
+function painimate () {
+    requestAnimationFrame(painimate);
+    webpageBomb();
+    // setTimeout(painimate(),100);
+}
+if(Math.random()>0.8) {
+    painimate();
+}

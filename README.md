@@ -4,6 +4,8 @@ The hub repo for most of Ririe Nielsen's Tooele Tech assignments in 2023.
 
 [Pages link](morpline.github.io/Master)
 
+If there is a folder existing without a description here, CHECK THE PAGES.
+
 # Folders
 
 ## 003 - personalProject
