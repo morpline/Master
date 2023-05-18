@@ -79,13 +79,33 @@ function randomRemoval (text) {
     // console.log("Test4");
     return done;
 }
+function anagram (text) {
+    let siwo = text || "Error - You have to enter some text";
+    let done = "";
+    let words = siwo.split(" ");
+    let finished = words.map((e,i)=>{
+        let u = "";
+        for (let j = 0; j < e.length; j++) {
+            const f = e.charAt(j);
+            if(Math.random()>0.5) {
+                u = f+u;
+            } else {
+                u = u+f;
+            }
+        }
+        return u;
+    });
+
+    done = finished.join(" ");
+    return done;
+}
 
 function maximumPain (text) {
-    return writeBackwards(randomSpoiler(randomRemoval(censorCommon(text))));
+    return anagram(writeBackwards(randomSpoiler(randomRemoval(censorCommon(text)))));
 }
 async function asyncMaximumPain (text) {
     await setTimeout(() => {}, Math.random()*30000);
-    return writeBackwards(randomSpoiler(randomRemoval(censorCommon(text))));
+    return anagram(writeBackwards(randomSpoiler(randomRemoval(censorCommon(text)))));
 }
 
 /* Painbot Anger.js Usage */
@@ -108,6 +128,10 @@ console.log(
 
 console.log(
     randomRemoval("this is a test of words, men.")
+);
+
+console.log(
+    anagram("this is a test of words, men.")
 );
 
 console.log(
