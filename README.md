@@ -52,9 +52,26 @@ No link available
 
 Beginner level Node.js assignment
 
+## Node_JWT
+
+No link available
+
+Simple JWT Login system.
+
 ## Routes_Controllers
 
 [Link](https://routes-controllers.onrender.com/)
 
 Another beginner level Node.js assignment
 
+## Painbot
+
+No link available
+
+Javascript Functions that can mess up a website
+
+## L.js
+
+No link available
+
+Simple Console.log replacement functions
