@@ -1,6 +1,6 @@
 # Master
 
-The hub repo for most of Ririe Nielsen's Tooele Tech assignments in 2023.
+The hub repo for most of Morpline's Tooele Tech assignments in 2023.
 
 [Pages link](morpline.github.io/Master)
 
