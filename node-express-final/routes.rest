@@ -1,0 +1,2 @@
+### Get root from Render
+GET http://mockbox.onrender.com/
