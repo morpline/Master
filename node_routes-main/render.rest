@@ -8,7 +8,7 @@ GET http://routes-controllers.onrender.com/ HTTP/1.1
 GET http://routes-controllers.onrender.com/students HTTP/1.1
 
 ### get one student
-GET http://routes-controllers.onrender.com/students/644a9ff67da76b36ab7ef945 HTTP/1.1
+GET http://routes-controllers.onrender.com/students/64ad791d1708a7bb41971582 HTTP/1.1
 
 ### create a student
 POST http://routes-controllers.onrender.com/students HTTP/1.1
@@ -23,7 +23,7 @@ Content-Type: application/json
 }
 
 ### update a student
-PUT http://routes-controllers.onrender.com/students/644ac23e76c0f8272edc796a HTTP/1.1
+PUT http://routes-controllers.onrender.com/students/64ad791d1708a7bb41971582 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -35,4 +35,4 @@ Content-Type: application/json
 }
 
 ### delete a student
-DELEhttt://ttproutes-controllers.onrender.com/students/644aca3aace4b78b35735349 HTTP/1.1
+DELETE http://routes-controllers.onrender.com/students/64ad791d1708a7bb41971582 HTTP/1.1
