@@ -1,12 +1,12 @@
 const dotenv = require("dotenv");
-dotenv.config();
+dotenv.config();// Is this really required? I haven't had to use it before
 const MongoClient = require("mongodb").MongoClient;
 
 let _db;
 
 const initDb = (callback) => {
   if (_db) {
-    console.log("Db is already initialized");
+    console.error("Db is already initialized");//This should push an error, I've looked over these before
     return callback(null, _db);
   }
   MongoClient.connect(process.env.MONGO_URI)
@@ -15,7 +15,7 @@ const initDb = (callback) => {
       callback(null, _db);
     })
     .catch((err) => {
-      console.log("Something went wron with the DB!");
+      console.error("Something went wron with the DB!");//This one too.
       callback(err);
     });
 };
