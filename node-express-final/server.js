@@ -1,9 +1,11 @@
 const express = require("express");
+const db = require("./db/connect");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use("/app/", require("./routes"));
+app.use(express.json());
+app.use("/app", require("./routes"));
 app.use(express.static("./public"));
 
 const start = async() => {
@@ -12,7 +14,7 @@ const start = async() => {
         app.listen(PORT, console.log(`port is ${PORT}..`));
         console.log("Conn. to the d.");
     } catch(err){
-        console.log("Fail. to the d.");
+        console.error("Fail. to the d.");
     }
 }
 start();

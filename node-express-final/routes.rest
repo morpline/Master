@@ -1,2 +1,12 @@
-### Get root from Render
-GET http://mockbox.onrender.com/
+### Post
+POST http://localhost:3000/app/signing HTTP/1.1
+Content-Type: application/json
+
+{
+            "what":"signin",
+            "user":"username.value",
+            "pass":"password.value"
+}
+
+### Get
+GET http://localhost:3000/app/app HTTP/1.1

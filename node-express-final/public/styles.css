@@ -1,0 +1,23 @@
+#main {
+    display: flex;
+
+}
+.game {
+    border: 5px solid #000;
+    margin: 10px;
+    width: 125px;
+}
+.game a {
+    font-size: 26px;
+    text-decoration: none;
+    color: darkcyan;
+}
+#buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width:90px;
+}
+#buttons input {
+    width: 30px;
+    height:30px;
+}

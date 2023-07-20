@@ -15,11 +15,11 @@ POST http://routes-controllers.onrender.com/students HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName": "Keanu",
-    "lastName": "Reeves",
-    "email": "johnwick007@killer.com",
-    "age": 34,
-    "currentCollege": "Assassin's Academy"
+    "firstName": "Keanu22",
+    "lastName": "Reeves22",
+    "email": "johnwick00722@killer.com",
+    "age": 3422,
+    "currentCollege": "Assassin's Academy22"
 }
 
 ### update a student
