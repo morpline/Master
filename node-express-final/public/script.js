@@ -1,6 +1,7 @@
 const main = document.querySelector("#main");
 const rf = document.querySelector("#rf");
 let token = "" || localStorage.getItem("token");
+// console.log(token);
 let user = "" || localStorage.getItem("user");
 const showTasks = async () => {
     try {
@@ -17,30 +18,30 @@ const showTasks = async () => {
         let bee3n = data.data;
         console.log(bee3n);
         if (bee3n.games.length < 1) {
-            main.innerHTML = '<h5 class="empty-list">No tasks in your list</h5>'
+            main.innerHTML = '<h5 class="empty-list">No currently running games, or an error on the server.</h5>'
             return
         }
-        let allTasks = "";
-        for (const key in bee3n.games) {
-            if (Object.hasOwnProperty.call(bee3n.games, key)) {
-                const task = bee3n.games[key];
-                console.log(task);
-                allTasks+=`<div class="game" >
-                <a href="./game.html?name=${key}">${key}</a>
-                <h4>Tic - tac - toe</h5>
-                <h4>${task.players}</h4>
-                </div>`;
-            }
-        }
-    //     const allTasks = bee3n.games
-    //         .map((task) => {
-    //             return `<div class="game" >
-    // <a href="./game.html?name=${task.name}">${task.name}</a>
-    // <h4>Tic - tac - toe</h5>
-    // <h4>${task.players}</h4>
-    // </div>`
-    //         })
-    //         .join('')
+        // let allTasks = "";
+        // for (const key in bee3n.games) {
+        //     if (Object.hasOwnProperty.call(bee3n.games, key)) {
+        //         const task = bee3n.games[key];
+        //         console.log(task);
+        //         allTasks+=`<div class="game" >
+        //         <a href="./game.html?id=${key}">${key}</a>
+        //         <h4>Tic - tac - toe</h5>
+        //         <h4>${task.players}</h4>
+        //         </div>`;
+        //     }
+        // }
+        const allTasks = bee3n.games
+            .map((task) => {
+                return `<div class="game" >
+    <a href="./game.html?id=${task._id}">${task.name}</a>
+    <h4>Tic - tac - toe</h5>
+    <h4>${task.players}</h4>
+    </div>`
+            })
+            .join('')
         main.innerHTML = allTasks
     } catch (error) {
         console.error(error);
@@ -54,15 +55,23 @@ const password = signing.querySelector("#password");
 const enter = signing.querySelector("#enter"); 
 const signIn = async () => {
     try{
-        const {data} = await axios.post("/app/signing",{
+        console.log("signin")
+        // const {data} = await axios.post("/app/signing",{
+        //     user:username.value,
+        //     pass:password.value
+        // });
+        await axios.post("/app/signing",{
             user:username.value,
             pass:password.value
-        });
-        console.log(data);
-        user = username.value;
-        token = data.token;
-        localStorage.setItem("user",username.value);
-        localStorage.setItem("token",data.token);
+        }).then((res)=>{
+            console.log(res.data.token);
+            user = username.value;
+            token = res.data.token;
+            localStorage.setItem("user",user);
+            localStorage.setItem("token",token);
+            showTasks();
+
+        })
     } catch (error) {
         console.error(error);
     }

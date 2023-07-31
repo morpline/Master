@@ -1,6 +1,6 @@
 #main {
     display: flex;
-
+    flex-wrap: wrap;
 }
 .game {
     border: 5px solid #000;

@@ -70,7 +70,7 @@ function addSymbol (where) {
     if(Game.turn == ct) {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        const nemp = urlParams.get('name');
+        const nemp = urlParams.get('id');
         axios.post("app/game/tic",{nemp,where,user,token})
         // Game.turn = Game.players[(ct)?0:1];
         return;
@@ -92,19 +92,24 @@ const form = document.getElementById("form");
 const enter = document.getElementById("enter");
 const p = document.getElementById("p");
 function update () {
-    const ct = Game.players.indexOf(user);
+    let ct = -1;
+    if(Game){
+        ct = Game.players.indexOf(user);
+    } else {
+        return;
+    }
     console.log("CT:",ct);
     const queryString = window.location.search;
     // console.log(queryString);
     const urlParams = new URLSearchParams(queryString);
     // console.log(urlParams);
-    const nemp = urlParams.get('name');
+    const nemp = urlParams.get('id');
     // console.log(nemp);
     if(!Game.complete){
-        axios.get(`/app/game/tic?name=${nemp}`)
+        axios.get(`/app/game/tic?id=${nemp}`)
         .then(result => {
             // console.log(result.data);
-            Game = result.data.job;
+            Game = result.data.job[0];
         })
     }
     if(Game.players.length==1) {
@@ -137,11 +142,11 @@ async function join () {
     try{
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        const nemp = urlParams.get('name');
+        const nemp = urlParams.get('id');
         const request = {
             user,
             token,
-            name:nemp,
+            _id:nemp,
             password:p.value
         }
         console.log(request);
@@ -160,4 +165,4 @@ loadLocalData();
 update();
 setInterval(() => {
     update();
-}, 100);
+}, 1000);
