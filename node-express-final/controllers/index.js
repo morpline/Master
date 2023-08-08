@@ -104,8 +104,17 @@ function Evaluator (game) {
         [1,4,8],
         [2,4,6]
     ];
+    let full = true;
+    for (let index = 0; index < game.status.length; index++) {
+        const element = game.status[index];
+        if(element == 0){
+            full = false;
+        }
+    }
+    
     for (let index = 0; index < combos.length; index++) {
         const element = combos[index];
+        
         if(game.status[element[0]]==game.status[element[1]] && game.status[element[2]] == game.status[element[0]]){
             //If combo that could win matches all three
             if(game.status[element[0]]==0){
@@ -117,6 +126,12 @@ function Evaluator (game) {
             }
         }
     }
+
+    if(full && !game.complete){
+        game.complete = true;
+        game.turn = -1;
+    }
+
 };
 async function Input (req,res) {
     const {
@@ -267,3 +282,4 @@ async function joinGame(req,res) {
     }
 }
 module.exports = {getAll, signin, Input, GetGame,joinGame,CreateGame};
+

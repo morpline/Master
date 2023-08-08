@@ -131,7 +131,7 @@ function update () {
     
         }
         if(Game.complete){
-            turn.textContent = "Game is over, "+((Game.turn==ct)?"you won.":"you lost.");
+            turn.textContent = "Game is over, "+((Game.turn==-1)?"you stalemated.":((Game.turn==ct)?"you won.":"you lost."));
         } else {
             turn.textContent = (Game.turn==ct)?"It is your turn":`It is ${Game.players[(ct)?0:1]}'s turn`;
         }
