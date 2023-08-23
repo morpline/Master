@@ -22,8 +22,9 @@ function App() {
   return (
     <div className="App">
       <h1>Counter {counter}</h1>
-      <button onClick={() => dispatch(increment(5))}>+</button>
-      <button onClick={() => dispatch(decrement(5))}>-</button>
+      <button onClick={() => dispatch(increment(9))}>+9</button>
+      <button onClick={() => dispatch(decrement(5))}>-5</button>
+      Try to set the counter to 10.
       {isLogged ? <h3>Valuable Information I shouldn't see</h3> : ""}
     </div>
   );
