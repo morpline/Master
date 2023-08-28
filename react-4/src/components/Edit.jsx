@@ -18,10 +18,11 @@ export default function Edit() {
   useEffect(() => {
     async function fetchData() {
       const id = params.id.toString();
+      console.log("id",id);
       const response = await fetch(
-        `Please include your own student API here/{params.id.toString()}`
+        `https://routes-controllers.onrender.com/students/${id}`
       );
-
+      console.log("RESPONSE RECIEVED",response)
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
         window.alert(message);
@@ -61,7 +62,7 @@ export default function Edit() {
     };
 
     // This will send a post request to update the data in the database.
-    await fetch(` Please include your own student API here/${params.id}`, {
+    await fetch(`https://routes-controllers.onrender.com/students/${params.id}`, {
       method: "PUT",
       body: JSON.stringify(editedPerson),
       headers: {
@@ -109,7 +110,7 @@ export default function Edit() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="age">Music Genre</label>
+          <label htmlFor="age">Age</label>
           <input
             type="text"
             className="form-control"

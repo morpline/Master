@@ -35,7 +35,7 @@ export default function RecordList() {
     setLoading(true);
     async function getRecords() {
       const response = await fetch(
-        `please include your API HERE`
+        `https://routes-controllers.onrender.com/students`
       );
       console.log(response);
       setLoading(false);
@@ -54,10 +54,11 @@ export default function RecordList() {
 
   // This method will delete a record
   async function deleteRecord(id) {
-    await fetch(`Please include your Student API Here`, {
+    const myRequest = new Request(`https://routes-controllers.onrender.com/students/${id}`, {
       method: "DELETE",
     });
-
+    let p = await fetch(myRequest);
+    console.log("response:",p);
     const newRecords = records.filter((el) => el._id !== id);
     setRecords(newRecords);
   }
@@ -78,7 +79,7 @@ export default function RecordList() {
   // This following section will display the table with the records of individuals.
   return (
     <div className="container">
-        {loading ? <Loader /> : recordList()}
+        
       <h3 className="contact-title">Contact List</h3>
       <table className="table table-striped" style={{ marginTop: 20 }}>
         <thead>
@@ -91,7 +92,7 @@ export default function RecordList() {
             <th>Modify Student</th>
           </tr>
         </thead>
-        <tbody>{recordList()}</tbody>
+        <tbody>{loading ? <Loader /> : recordList()}</tbody>
       </table>
     </div>
   );

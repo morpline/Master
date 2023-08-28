@@ -1,4 +1,4 @@
-import "bootswatch/dist/darkly/bootstrap.min.css";
+// import "bootswatch/dist/darkly/bootstrap.min.css";
 import Navbar from "./components/Navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
 import RecordList from "./components/RecordList";
@@ -11,6 +11,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route exact path="/" element={<RecordList />} />
+        <Route path="/edit">
+          <Route path=":id" element={<Edit />}/>
+        </Route>
+        <Route exact path="/contacts/create/" element={<Create />} />
       </Routes>
     </div>
   );
